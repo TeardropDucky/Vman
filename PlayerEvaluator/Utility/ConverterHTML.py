@@ -150,7 +150,7 @@ class ConverterHTML:
                 'Outfielders': data[3],
                 'Discipline': data[4],
                 'Potential': data[5],
-                'Mangement': data[6],
+                'Management': data[6],
                 'Ability': data[7],
                 'Motivation': data[8]
             }

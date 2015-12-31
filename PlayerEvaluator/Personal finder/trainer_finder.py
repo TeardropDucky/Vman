@@ -8,7 +8,7 @@ class trainer_finder:
     def __init__(self):
         self.__htmlworker = ConverterHTML()
 
-    def search_trainers(self, youth, keeper, outfielder, endPage=10, startPage=1, minPrice=50000, maxPrice=500000,
+    def search_trainers(self, youth, keeper, outfielder, disciplin=0, motivation=0, endPage=10, startPage=1, minPrice=50000, maxPrice=500000,
                         max_age=99):
         if minPrice > maxPrice:
             return None
@@ -20,7 +20,8 @@ class trainer_finder:
             tmp_array = [employee for employee in tmp_array if minPrice < employee.value < maxPrice]
             # Now lets find the really good coaches
             tmp_array = [employee for employee in tmp_array if employee.stats['Youngsters'] >= youth
-                         and employee.stats['Keepers'] >= keeper and employee.stats['Outfielders'] >= outfielder]
+                         and employee.stats['Keepers'] >= keeper and employee.stats['Outfielders'] >= outfielder
+                         and employee.stats['Discipline'] >= disciplin and employee.stats['Motivation'] >= motivation]
             trainerArray.extend(tmp_array)
             if x % 10 == 0:
                 print("done with page " + str(x))
@@ -31,7 +32,7 @@ class trainer_finder:
             print("stats: " + str(x.stats))
         return trainerArray
 
-    def search_trainer(self, youth, keeper, outfielder, startPage=1, ):
+    def search_trainer(self, youth, keeper, outfielder , discipline=0, motivation=0, startPage=1, ):
         if startPage < 1:
             print('Start page much be higher than 1')
             return
@@ -46,7 +47,8 @@ class trainer_finder:
                 return
             # Now lets find the really good coaches
             tmp_array = [employee for employee in tmp_array if employee.stats['Youngsters'] >= youth
-                         and employee.stats['Keepers'] >= keeper and employee.stats['Outfielders'] >= outfielder]
+                         and employee.stats['Keepers'] >= keeper and employee.stats['Outfielders'] >= outfielder
+                         and employee.stats['Discipline'] >= discipline and employee.stats['Motivation'] >= motivation]
             # For now just print, every 10 pages
             if x % 10 == 0:
                 print("done with page " + str(x))
@@ -62,4 +64,4 @@ class trainer_finder:
 
 
 derp = trainer_finder()
-derp.search_trainer(20, 20, 20, 1)
+derp.search_trainer(20, 18, 20, 15, 15, 10000)
