@@ -9,7 +9,7 @@ class ConverterHTML:
     __response_body = None  # Remember to reset this to None after each function
 
     def __init__(self):
-        self.__retriever = RetrieverHTML('himmelherren@gmail.com', 'anders')
+        self.__retriever = RetrieverHTML('himmelherren@gmail.com', 'testpassword')
 
     # *****************************************************************************************************************
     #   Functions getting data to a player
