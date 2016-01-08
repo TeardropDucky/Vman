@@ -103,4 +103,4 @@ class trainer_finder:
 
 derp = trainer_finder()
 #derp.search_trainer(15, 15, 0)
-derp.search_trainers(20, 0, 20, 0, 0, 10000, 0)
+derp.search_trainers(20, 18, 18, 0, 0, 15000, 10000)
